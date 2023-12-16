@@ -1,0 +1,14 @@
+# .gitignore for a Rust project
+
+# Compiled files
+/target/
+
+# Cargo lock file
+Cargo.lock
+
+# Generated documentation
+/target/doc/
+
+# OS-specific files
+.DS_Store
+Thumbs.db

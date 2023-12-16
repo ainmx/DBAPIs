@@ -1,0 +1,18 @@
+CREATE DATABASE hstestdb;
+\c hstestdb;
+
+CREATE USER hsdb WITH PASSWORD 'hsdbpass';
+GRANT ALL PRIVILEGES ON DATABASE hstestdb TO hsdb;
+
+DROP TABLE IF EXISTS HTML;
+
+CREATE TABLE HTML (
+	uuid CHAR(36) PRIMARY KEY,
+    content TEXT
+);
+
+GRANT ALL PRIVILEGES ON TABLE HTML TO hsdb;
+
+INSERT INTO HTML (uuid, content) VALUES
+  ('550e8400-e29b-41d4-a716-446655440000', 'Sample content 1'),
+  ('550e8400-e29b-41d4-a716-446655440001', 'Sample content 2');
