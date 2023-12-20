@@ -28,12 +28,10 @@ def get_page(cursor, uuid):
 
 def prepare_plan(cursor, plan_name, query):
     plan_query = "PREPARE " + plan_name + " AS " + query
-    #cursor.execute( "PREPARE %s AS %s", (str(plan_name), query) )
     cursor.execute (plan_query)
 
 def execute_plan(cursor, plan_name, param):
     execute_query = "EXECUTE " + plan_name + " (%s)"
-    #cursor.execute( "EXECUTE %s (%s)", (plan_name, param) )
     cursor.execute(execute_query, (param, ))
     result = cursor.fetchone()
     html = Html( result[0], result[1] )
